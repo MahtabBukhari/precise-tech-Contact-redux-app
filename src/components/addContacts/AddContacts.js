@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addContact } from '../../redux/actions/contactActions'
 
+// create dummy id udint npm i shortid
+import shortid from 'shortid'
+
 const AddContacts = () => {
   const dispatch = useDispatch()
 
@@ -13,6 +16,7 @@ const createContact=(e)=>{
   e.preventDefault()
   console.log(name,phone,email)
   const new_contact={
+    id:shortid.generate(),
     name,
     phone,
     email
