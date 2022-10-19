@@ -7,3 +7,7 @@ $theme-colors: (
 );
 
 @import "~bootstrap/scss/bootstrap";
+
+body{
+  padding-top: 5rem;
+}
