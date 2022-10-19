@@ -8,14 +8,15 @@ import shortid from 'shortid'
 
 const EditContact = () => {
   
-    //  const contact =arrcontact?arrcontact[0]:{}
-    // console.log("contact",contact)
+
     
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const {id}=useParams()
-  console.log(id)
+
+//   console.log(id)
+
   const contact=  useSelector(state=>state.user.contact)
 const [name,setName]=useState('')
 const [phone,setPhone]=useState('')
@@ -24,13 +25,13 @@ const [email,setEmail]=useState('')
 const updateContact=(e)=>{
   e.preventDefault()
  
-
-  const update_contact={
+// below method will update the fields that are pass and the other remains the same
+  const update_contact= Object.assign(contact,{
     id:shortid.generate(),
     name,
     phone,
     email
-  }
+  })
   console.log(update_contact)
 //   dispatch(addContact(new_contact))
 //   navigate("/")
