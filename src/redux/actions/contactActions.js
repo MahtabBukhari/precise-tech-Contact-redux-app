@@ -16,3 +16,9 @@ export const getContact=(id)=>({
     payload:id
 
 })
+
+
+export const updateContact=(contact)=>({
+    type:contactTypes.UPDATE_CONTACT,
+    payload:contact
+})

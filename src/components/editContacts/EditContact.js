@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
-import { addContact, getContact } from '../../redux/actions/contactActions'
+import {  getContact, updateContact } from '../../redux/actions/contactActions'
 import {useNavigate, useParams} from 'react-router-dom'
 
 // create dummy id udint npm i shortid
-import shortid from 'shortid'
+// import shortid from 'shortid'
 
 const EditContact = () => {
   
@@ -22,21 +22,7 @@ const [name,setName]=useState('')
 const [phone,setPhone]=useState('')
 const [email,setEmail]=useState('')
 
-const updateContact=(e)=>{
-  e.preventDefault()
- 
-// below method will update the fields that are pass and the other remains the same
-  const update_contact= Object.assign(contact,{
-    id:shortid.generate(),
-    name,
-    phone,
-    email
-  })
-  console.log(update_contact)
-//   dispatch(addContact(new_contact))
-//   navigate("/")
 
-}
 
 //as this component load first useEffect run  and so dispatch id to reducer so that we will able to get data from redux store
 useEffect(()=>{
@@ -48,13 +34,29 @@ useEffect(()=>{
     dispatch(getContact(id))
 },[contact,id,dispatch])
 
+const updateFunContact=(e)=>{
+  
+    e.preventDefault()
+
+// below method will update the fields that are pass and the other remains the same
+const update_contact= Object.assign(contact,{
+  name,
+  phone,
+  email
+})
+console.log(update_contact)
+dispatch(updateContact(update_contact))
+navigate("/")
+
+}
+
   return (
     <div className='card border-0 shadow'>
       <div className="card-header">
         Add a Contact
       </div>
       <div className="card-body">
-        <form  onSubmit={updateContact}>
+        <form  onSubmit={updateFunContact}>
 
           <div className="form-group">
             <input type="text" className="form-control" required value={name} onChange={e=>setName(e.target.value)} placeholder='Enter Your Name'/>
