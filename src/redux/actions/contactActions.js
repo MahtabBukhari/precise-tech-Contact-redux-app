@@ -34,3 +34,8 @@ export const SelectAllContact=(id)=>({
     type:contactTypes.SELECT_CONTACTS,
     payload:id
 })
+
+
+export const clearSelection=()=>({
+    type:contactTypes.CLEAR_CONTACTS, 
+})

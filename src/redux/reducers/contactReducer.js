@@ -285,6 +285,11 @@ export const contactReducer = (state=initialState,{type,payload}) => {
             ...state,
             selectContacts:payload
           }
+        case contactTypes.CLEAR_CONTACTS:
+          return{
+            ...state,
+            selectContacts:[]
+          }
         default:
             return state;
     }

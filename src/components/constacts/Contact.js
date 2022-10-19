@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector,useDispatch } from 'react-redux'; 
-import { SelectAllContact } from '../../redux/actions/contactActions';
+import { clearSelection, SelectAllContact } from '../../redux/actions/contactActions';
 import ContactBody from './contactBody';
 
 
@@ -13,9 +13,11 @@ const [selectAll,setSelectAll]=useState(false)
 
 useEffect(()=>{
   if(selectAll){
-
-    // the method to only send the ids of all contacts
+   // the method to only send the ids of all contacts
     dispatch(SelectAllContact(contacts.map(contact=> contact.id)))
+  }else{
+    // if selectAll false then clear selected array that hold the ids of all contacts
+    dispatch(clearSelection())
   }
 },[selectAll])
 
