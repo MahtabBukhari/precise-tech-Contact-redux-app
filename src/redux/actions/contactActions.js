@@ -8,3 +8,11 @@ export const addContact = (contact)=>{
         payload:contact 
     }
 }
+
+
+//new way of return object with out return keyword
+export const getContact=(id)=>({
+    type:contactTypes.GET_CONTACT,
+    payload:id
+
+})

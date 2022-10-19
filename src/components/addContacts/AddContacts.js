@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addContact } from '../../redux/actions/contactActions'
+import {useNavigate} from 'react-router-dom'
 
 // create dummy id udint npm i shortid
 import shortid from 'shortid'
 
 const AddContacts = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
 const [name,setName]=useState('')
 const [phone,setPhone]=useState('')
@@ -23,6 +25,7 @@ const createContact=(e)=>{
   }
   console.log(new_contact)
   dispatch(addContact(new_contact))
+  navigate("/")
 
 }
 
@@ -35,13 +38,13 @@ const createContact=(e)=>{
         <form  onSubmit={createContact}>
 
           <div className="form-group">
-            <input type="text" className="form-control" value={name} onChange={e=>setName(e.target.value)} placeholder='Enter Your Name'/>
+            <input type="text" className="form-control" value={name} onChange={e=>setName(e.target.value)} required placeholder='Enter Your Name'/>
           </div>
           <div className="form-group">
-            <input type="text" className="form-control" value={phone} onChange={e=>setPhone(e.target.value)} placeholder='Enter Your Phone No.' />
+            <input type="text" className="form-control" value={phone} onChange={e=>setPhone(e.target.value)} required placeholder='Enter Your Phone No.' />
           </div>
           <div className="form-group">
-            <input type="text" className="form-control" value={email} onChange={e=>setEmail(e.target.value)} placeholder='Enter Your Email'/>
+            <input type="email" className="form-control" value={email} onChange={e=>setEmail(e.target.value)} required placeholder='Enter Your Email'/>
           </div>
            <button type='submit' className='btn btn-primary'>Add a Contact</button>
 

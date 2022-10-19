@@ -236,7 +236,7 @@ const initialState={
           }
         }
       ],
-      counter:0,
+      contact:null,
 
     }
 
@@ -247,6 +247,15 @@ export const contactReducer = (state=initialState,{type,payload}) => {
             return{
                 ...state,
                 contacts:[payload,...state.contacts]
+
+            }
+        case contactTypes.GET_CONTACT:
+            const fcontact= state.contacts.filter(contact=>contact.id==payload)
+          console.log("paylo",payload)
+          console.log("contact",fcontact)
+            return{
+                ...state,
+                contact:fcontact
 
             }
         default:
