@@ -7,29 +7,31 @@ import {useNavigate, useParams} from 'react-router-dom'
 import shortid from 'shortid'
 
 const EditContact = () => {
-    const getUserContact=useSelector(state=>state.user.contact)
-    console.log("select",getUserContact)
+    const arrcontact=useSelector(state=>state.user.contact)
+     const contact = arrcontact[0]
+    console.log("contact",contact)
+    
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const {id}=useParams()
   console.log(id)
 
-const [name,setName]=useState('')
-const [phone,setPhone]=useState('')
-const [email,setEmail]=useState('')
+const [name,setName]=useState(contact.name?contact.name:'')
+const [phone,setPhone]=useState(contact.phone?contact.phone:'')
+const [email,setEmail]=useState(contact.email?contact.email:'')
 
-const createContact=(e)=>{
+const updateContact=(e)=>{
   e.preventDefault()
  
-//   console.log(name,phone,email)
-//   const new_contact={
-//     id:shortid.generate(),
-//     name,
-//     phone,
-//     email
-//   }
-//   console.log(new_contact)
+  console.log(name,phone,email)
+  const update_contact={
+    id:shortid.generate(),
+    name,
+    phone,
+    email
+  }
+  console.log(update_contact)
 //   dispatch(addContact(new_contact))
 //   navigate("/")
 
@@ -46,7 +48,7 @@ useEffect(()=>{
         Add a Contact
       </div>
       <div className="card-body">
-        <form  onSubmit={createContact}>
+        <form  onSubmit={updateContact}>
 
           <div className="form-group">
             <input type="text" className="form-control" required value={name} onChange={e=>setName(e.target.value)} placeholder='Enter Your Name'/>
