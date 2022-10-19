@@ -2,8 +2,7 @@
 
 
 
-const initialState={
-    contacts:[
+const initialState=[
         {
           "id": 1,
           "name": "Leanne Graham",
@@ -235,7 +234,7 @@ const initialState={
           }
         }
       ]
-}
+
 export const contactReducer = (state=initialState,{type,payload}) => {
     switch(type){
         default:
