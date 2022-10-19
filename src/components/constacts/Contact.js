@@ -9,7 +9,9 @@ const dispatch = useDispatch()
 // how to select all contacts
 const [selectAll,setSelectAll]=useState(false)
     const contacts = useSelector(state=>state.user.contacts)
-    console.log(selectAll)
+    // console.log(selectAll)
+
+    const selectionArry = useSelector(state=>state.user.selectContacts)
 
 useEffect(()=>{
   if(selectAll){
@@ -22,6 +24,9 @@ useEffect(()=>{
 },[selectAll])
 
   return (
+    <>
+    {selectionArry.length>1?<button className='btn btn-danger mb-2' onClick={()=>dispatch()}>Delete All</button>:'' }
+    
     <table className="table shadow ">
  <thead className='bg-danger text-light'>
     <tr>
@@ -46,6 +51,7 @@ useEffect(()=>{
   
   </tbody>
   </table>
+    </>
   )
 }
 
