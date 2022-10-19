@@ -12,6 +12,11 @@ const contactBody = ({contact}) => {
     <td><Avatar name={name} size="45" round={true} className="mr-2" />{name}</td>
     <td>{phone}</td>
     <td>{email}</td>
+    <td className='actions'>
+        <a href="/"  ><span className='material-icons mr-2'>edit</span>
+      </a>
+        <a href="/" ><span className='material-icons text-danger'> remove_circle</span> </a>
+    </td>
   </tr>
   )
 }

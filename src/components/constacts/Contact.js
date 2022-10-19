@@ -18,6 +18,7 @@ const Contact = () => {
       <th>Name</th>
       <th>Phone</th>
       <th>E-mail</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>

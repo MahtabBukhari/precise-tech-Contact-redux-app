@@ -1,0 +1,10 @@
+.actions{
+    opacity: 0;
+    // &:hover{
+    //     opacity: 1;
+    // }
+}
+
+tr:hover .actions{
+    opacity: 1;
+}
