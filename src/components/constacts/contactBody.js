@@ -1,5 +1,6 @@
 import React from 'react';
 import Avatar from 'react-avatar';
+import { Link } from 'react-router-dom';
 
 const contactBody = ({contact}) => {
     const {name,phone,email}=contact
@@ -13,9 +14,9 @@ const contactBody = ({contact}) => {
     <td>{phone}</td>
     <td>{email}</td>
     <td className='actions'>
-        <a href="/"  ><span className='material-icons mr-2'>edit</span>
-      </a>
-        <a href="/" ><span className='material-icons text-danger'> remove_circle</span> </a>
+        <Link to="/" ><span className='material-icons mr-2'>edit</span>
+      </Link>
+        <Link to="/" ><span className='material-icons text-danger'> remove_circle</span> </Link>
     </td>
   </tr>
   )

@@ -3,6 +3,6 @@ import { contactReducer } from './contactReducer'
 
 
 export const rootReducer=combineReducers({
-   contacts:contactReducer
+ user:contactReducer
 
 })

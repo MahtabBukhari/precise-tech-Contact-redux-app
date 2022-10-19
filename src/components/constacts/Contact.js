@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import ContactBody from './contactBody';
 
 const Contact = () => {
-    const contacts = useSelector(state=>state.contacts)
+    const contacts = useSelector(state=>state.user.contacts)
     console.log(contacts)
   return (
     <table className="table shadow ">
- <thead className='bg-danger color-light'>
+ <thead className='bg-danger text-light'>
     <tr>
       <th>
         <div className="custom-control custom-checkbox">

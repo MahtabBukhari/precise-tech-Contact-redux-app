@@ -1,8 +1,10 @@
+import { contactTypes } from "../constants";
 
 
 
 
-const initialState=[
+const initialState={
+    contacts:[
         {
           "id": 1,
           "name": "Leanne Graham",
@@ -233,10 +235,20 @@ const initialState=[
             "bs": "target end-to-end models"
           }
         }
-      ]
+      ],
+      counter:0,
+
+    }
 
 export const contactReducer = (state=initialState,{type,payload}) => {
     switch(type){
+        case contactTypes.CREATE_CONTACT:
+            console.log("payload",payload)
+            return{
+                ...state,
+                contacts:[payload,...state.contacts]
+
+            }
         default:
             return state;
     }
