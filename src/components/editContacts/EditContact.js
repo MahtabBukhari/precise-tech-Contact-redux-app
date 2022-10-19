@@ -22,8 +22,6 @@ const [name,setName]=useState('')
 const [phone,setPhone]=useState('')
 const [email,setEmail]=useState('')
 
-
-
 //as this component load first useEffect run  and so dispatch id to reducer so that we will able to get data from redux store
 useEffect(()=>{
     if(contact!=null){

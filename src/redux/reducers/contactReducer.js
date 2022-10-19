@@ -237,6 +237,7 @@ const initialState={
         }
       ],
       contact:null,
+      selectContacts:[]
 
     }
 
@@ -279,6 +280,11 @@ export const contactReducer = (state=initialState,{type,payload}) => {
                 ...state,
                 contacts:state.contacts.filter(contact=> contact.id!=payload)
             }
+        case contactTypes.SELECT_CONTACTS:
+          return{
+            ...state,
+            selectContacts:payload
+          }
         default:
             return state;
     }
