@@ -250,12 +250,23 @@ export const contactReducer = (state=initialState,{type,payload}) => {
 
             }
         case contactTypes.GET_CONTACT:
-            const fcontact= state.contacts.filter(contact=>contact.id==payload)
-          console.log("paylo",payload)
-          console.log("contact",fcontact)
+
+        // it will return an array of single object
+            let arr= state.contacts.filter(contact=>contact.id==payload)
+            // console.log(arr)
+            arr=arr.values()
+            // console.log(arr)
+            for(let val of arr){
+
+                arr = val
+
+            }
+           
+        //   console.log("paylo",payload)
+          console.log("contact",arr)
             return{
                 ...state,
-                contact:fcontact
+                contact:arr
 
             }
         default:
