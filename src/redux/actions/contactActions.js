@@ -39,3 +39,8 @@ export const SelectAllContact=(id)=>({
 export const clearSelection=()=>({
     type:contactTypes.CLEAR_CONTACTS, 
 })
+
+
+export const deleteAllContacts=()=>({
+    type:contactTypes.DELETE_ALL_CONTACTS, 
+})

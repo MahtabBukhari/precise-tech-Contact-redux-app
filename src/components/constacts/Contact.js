@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector,useDispatch } from 'react-redux'; 
-import { clearSelection, SelectAllContact } from '../../redux/actions/contactActions';
+import { clearSelection, deleteAllContacts, SelectAllContact } from '../../redux/actions/contactActions';
 import ContactBody from './contactBody';
 
 
@@ -25,7 +25,7 @@ useEffect(()=>{
 
   return (
     <>
-    {selectionArry.length>1?<button className='btn btn-danger mb-2' onClick={()=>dispatch()}>Delete All</button>:'' }
+    {selectionArry.length>=1?<button className='btn btn-danger mb-2' onClick={()=>dispatch(deleteAllContacts())}>Delete All</button>:'' }
     
     <table className="table shadow ">
  <thead className='bg-danger text-light'>

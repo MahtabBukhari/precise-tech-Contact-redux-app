@@ -290,6 +290,11 @@ export const contactReducer = (state=initialState,{type,payload}) => {
             ...state,
             selectContacts:[]
           }
+        case contactTypes.DELETE_ALL_CONTACTS:
+          return{
+            ...state,
+            contacts:[]
+          }
         default:
             return state;
     }
