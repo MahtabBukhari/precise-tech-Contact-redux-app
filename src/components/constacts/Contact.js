@@ -1,8 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux'; 
+import { useSelector,useDispatch } from 'react-redux'; 
 import ContactBody from './contactBody';
 
+
 const Contact = () => {
+const dispatch = useDispatch()
     const contacts = useSelector(state=>state.user.contacts)
     console.log(contacts)
   return (
@@ -24,7 +26,7 @@ const Contact = () => {
   <tbody>
     {contacts.map(contact=>(
         
-          <ContactBody key={contact.id} contact={contact}/>
+          <ContactBody key={contact.id} contact={contact} dispatch={dispatch}/>
 
     ))}
   

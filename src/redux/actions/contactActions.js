@@ -22,3 +22,9 @@ export const updateContact=(contact)=>({
     type:contactTypes.UPDATE_CONTACT,
     payload:contact
 })
+
+
+export const deleteContact=(payload)=>({
+    type:contactTypes.DELETE_CONTACT,
+    payload:payload
+})

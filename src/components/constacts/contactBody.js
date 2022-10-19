@@ -1,8 +1,10 @@
 import React from 'react';
 import Avatar from 'react-avatar';
 import { Link } from 'react-router-dom';
+import { deleteContact } from '../../redux/actions/contactActions';
 
-const contactBody = ({contact}) => {
+const contactBody = ({contact,dispatch}) => {
+   
     const {name,phone,id,email}=contact
   return (
     <tr>
@@ -16,7 +18,7 @@ const contactBody = ({contact}) => {
     <td className='actions'>
         <Link to={`/contacts/edit/${id}`} ><span className='material-icons mr-2'>edit</span>
       </Link>
-        <Link to="/" ><span className='material-icons text-danger'> remove_circle</span> </Link>
+     <Link to="/"> <span  className='material-icons text-danger' onClick={()=>{dispatch(deleteContact(id))}}> remove_circle</span> </Link> 
     </td>
   </tr>
   )
